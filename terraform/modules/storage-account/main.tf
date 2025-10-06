@@ -6,13 +6,13 @@ resource "azurerm_storage_account" "main" {
   account_replication_type = var.account_replication_type
   account_kind             = var.account_kind
   access_tier              = var.access_tier
-  
+
   # Security: Enforce TLS 1.2 as minimum version
-  min_tls_version                = "TLS1_2"
-  enable_https_traffic_only      = true
+  min_tls_version                 = "TLS1_2"
+  https_traffic_only_enabled      = true
   allow_nested_items_to_be_public = false
-  shared_access_key_enabled      = false
-  
+  shared_access_key_enabled       = false
+
   tags = var.tags
 }
 

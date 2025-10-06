@@ -1,6 +1,6 @@
 terraform {
   required_version = ">= 1.0"
-  
+
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
@@ -29,10 +29,10 @@ resource "random_string" "suffix" {
 # Resource Group
 module "resource_group" {
   source = "./modules/resource-group"
-  
+
   name     = "rg-drift-test-${random_string.suffix.result}"
   location = var.location
-  
+
   tags = {
     Environment = "test"
     ManagedBy   = "terraform"
@@ -44,7 +44,7 @@ module "resource_group" {
 # Storage Account
 module "storage_account" {
   source = "./modules/storage-account"
-  
+
   name                     = "stdrift${random_string.suffix.result}"
   resource_group_name      = module.resource_group.name
   location                 = var.location
@@ -53,7 +53,7 @@ module "storage_account" {
   account_kind             = "StorageV2"
   access_tier              = "Hot"
   container_name           = "test-container"
-  
+
   tags = {
     Environment = "test"
     ManagedBy   = "terraform"
