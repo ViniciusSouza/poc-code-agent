@@ -16,9 +16,9 @@ resource "azurerm_storage_account" "main" {
   location                 = "eastus"
   account_tier             = "Standard"
   account_replication_type = "LRS"
-  
+
   min_tls_version = var.min_tls_version
-  
+
   tags = var.tags
 }
 

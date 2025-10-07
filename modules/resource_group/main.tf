@@ -7,7 +7,7 @@ variable "tags" {
 resource "azurerm_resource_group" "main" {
   name     = "drift-detector-rg"
   location = "eastus"
-  
+
   tags = var.tags
 }
 
